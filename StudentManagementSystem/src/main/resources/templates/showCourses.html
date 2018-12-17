@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap-grid.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css" type="text/css" media="all">
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+</head>
+<body>
+<form action="#" th:object="${course}"  th:action="@{/showCourses}" method="get">
+<table class="table table-hover">
+    <thead>
+        <tr>
+			<th scope="col">Course Id</th>
+            <th scope="col">Course Name</th>
+		</tr>
+    </thead>
+    <tbody>
+        <tr class="table-success" th:each="c:${courses}">
+			<td th:text="${c.id}"></td>
+            <td th:text="${c.name}"></td>
+			<td>
+			<form action="#" th:action="@{/removeCourse/{id}(id=${c.id})}" th:method="delete">
+			<button  type="submit" id="submitButton" class="btn btn-primary btn-lg">Delete</button>
+			</form>
+			</td>
+			
+        </tr>
+    </tbody>
+</table>
+</form>
+<a href="/showStudents" class="btn btn-primary" >Home</a>
+</body>
+</html>
+

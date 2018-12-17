@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap-grid.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css" type="text/css" media="all">
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+</head>
+<body>
+Edit Student:
+<form action="#" th:object="${student}"  th:action="@{/editStudent/{id}(id=${student.id})}" method="post">
+
+    <div class="form-group col-lg-6">
+        <label class="col-form-label col-form-label-lg" for="inputLarge">Name:</label>
+        <input th:field="*{name}"  class="form-control form-control-lg" type="text" placeholder="Enter student name here" id="inputLarge">
+    </div>
+
+    <div class="form-group col-lg-6">
+        <label class="col-form-label col-form-label-lg" for="inputLarge">Age:</label>
+        <input th:field="*{age}" class="form-control form-control-lg" type="text" placeholder="Enter student age here" id="inputLarge">
+    </div>
+
+    <div class="form-group col-lg-6">
+        <label class="col-form-label col-form-label-lg" for="inputLarge">Address:</label>
+        <input th:field="*{address}" class="form-control form-control-lg" type="text" placeholder="Enter the addres of the student here" id="inputLarge">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+</form>
+
+
+</body>
+
+</html>

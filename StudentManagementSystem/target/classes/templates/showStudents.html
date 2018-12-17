@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap-grid.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css" type="text/css" media="all">
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+</head>
+<body>
+All Students:
+<form action="#" th:object="${student}"  th:action="@{/showStudents}" method="post">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+			<th scope="col">Student Courses</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-success" th:each="stud:${students}">
+            <td th:text="${stud.id}"></td>
+            <td th:text="${stud.name}"></td>
+            <td th:text="${stud.age}"></td>
+            <td th:text="${stud.address}"></td>
+			<td th:text="${stud.courses}"></td>
+			<td><!-- <a th:href="@{/editScreening/{id}(id=${screening.id})}" class="btn btn-ghost-xs" method="get" >Edit</a> -->
+			<form action="#" th:action="@{/editStudent/{id}(id=${stud.id})}" th:method="get">
+			<button  type="submit" id="submitButton" class="btn btn-primary btn-lg">Edit</button>
+			</form>
+			</td>
+			<td>
+			<form action="#" th:action="@{/removeStudent/{id}(id=${stud.id})}" th:method="delete">
+			<button  type="submit" id="submitButton" class="btn btn-primary btn-lg">Delete</button>
+			</form>
+			</td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<a href="/addStudent" class="btn btn-primary" >Add New Student</a>
+<a href="/addCourse" class="btn btn-primary" >Add New Course</a>
+<a href="/showCourses" class="btn btn-primary" >Show Course</a>
+
+
+
+
+</body>
+
+</html>
